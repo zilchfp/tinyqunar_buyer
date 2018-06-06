@@ -1,9 +1,9 @@
-package cyc.tinyqnar.seller.seller.Controller;
+package cyc.tinyqnar.Buyer.Buyer.Controller;
 
 
-import cyc.tinyqnar.seller.seller.Domain.Order;
-import cyc.tinyqnar.seller.seller.Repository.OrderRepository;
-import cyc.tinyqnar.seller.seller.Service.OrderService;
+import cyc.tinyqnar.Buyer.Buyer.Domain.Order;
+import cyc.tinyqnar.Buyer.Buyer.Repository.OrderRepository;
+import cyc.tinyqnar.Buyer.Buyer.Service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

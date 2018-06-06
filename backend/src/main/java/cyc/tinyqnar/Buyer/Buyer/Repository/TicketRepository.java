@@ -1,6 +1,6 @@
-package cyc.tinyqnar.seller.seller.Repository;
+package cyc.tinyqnar.Buyer.Buyer.Repository;
 
-import cyc.tinyqnar.seller.seller.Domain.Ticket;
+import cyc.tinyqnar.Buyer.Buyer.Domain.Ticket;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.transaction.annotation.Transactional;

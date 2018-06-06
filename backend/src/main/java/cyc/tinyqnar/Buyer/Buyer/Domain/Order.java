@@ -1,4 +1,4 @@
-package cyc.tinyqnar.seller.seller.Domain;
+package cyc.tinyqnar.Buyer.Buyer.Domain;
 
 
 import lombok.Data;

@@ -1,7 +1,7 @@
-package cyc.tinyqnar.seller.seller.Service;
+package cyc.tinyqnar.Buyer.Buyer.Service;
 
-import cyc.tinyqnar.seller.seller.Domain.Ticket;
-import cyc.tinyqnar.seller.seller.Repository.TicketRepository;
+import cyc.tinyqnar.Buyer.Buyer.Domain.Ticket;
+import cyc.tinyqnar.Buyer.Buyer.Repository.TicketRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

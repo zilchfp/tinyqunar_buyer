@@ -1,12 +1,12 @@
-package cyc.tinyqnar.seller.seller;
+package cyc.tinyqnar.Buyer.Buyer;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SellerApplication {
+public class BuyerApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SellerApplication.class, args);
+        SpringApplication.run(BuyerApplication.class, args);
     }
 }

@@ -1,4 +1,4 @@
-package cyc.tinyqnar.seller.seller;
+package cyc.tinyqnar.Buyer.Buyer;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class SellerApplicationTests {
+public class BuyerApplicationTests {
 
     @Test
     public void contextLoads() {

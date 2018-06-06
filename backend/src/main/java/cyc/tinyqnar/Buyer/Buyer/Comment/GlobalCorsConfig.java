@@ -1,4 +1,4 @@
-package cyc.tinyqnar.seller.seller.Comment;
+package cyc.tinyqnar.Buyer.Buyer.Comment;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,7 +1,7 @@
-package cyc.tinyqnar.seller.seller.Service;
+package cyc.tinyqnar.Buyer.Buyer.Service;
 
-import cyc.tinyqnar.seller.seller.Domain.Order;
-import cyc.tinyqnar.seller.seller.Repository.OrderRepository;
+import cyc.tinyqnar.Buyer.Buyer.Domain.Order;
+import cyc.tinyqnar.Buyer.Buyer.Repository.OrderRepository;
 import org.aspectj.weaver.ast.Or;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

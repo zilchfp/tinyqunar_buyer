@@ -262,8 +262,7 @@
                     this.getData();
                     this.$message.success("修改成功!");
                     this.addEditVisible = false;
-                })
-                    .catch(function (error) {
+                }).catch(function (error) {
                         console.log(error);
                     });
             },
