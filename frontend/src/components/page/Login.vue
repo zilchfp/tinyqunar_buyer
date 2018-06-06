@@ -9,11 +9,44 @@
                 <el-form-item prop="password">
                     <el-input type="password" placeholder="密码" v-model="ruleForm.password" @keyup.enter.native="submitForm('ruleForm')"></el-input>
                 </el-form-item>
-                <div class="login-btn">
-                    <el-button type="primary" @click="submitForm('ruleForm')">登录</el-button>
-                </div>
+                <el-form-item>
+                    <div class="login-btn">
+                        <el-button type="primary" @click="submitForm('ruleForm')">登录</el-button>
+                    </div>
+                </el-form-item>
+                <el-form-item>
+                    <div class="login-btn">
+                        <el-button type="primary"  @click="handleRegister">注册</el-button>
+                    </div>
+                </el-form-item>
+
             </el-form>
         </div>
+
+
+
+        <!-- 注册弹出框 -->
+        <el-dialog title="注册" :visible.sync="resigterEditVisible" width="30%">
+            <el-form ref="form" :model="form" label-width="50px">
+                <el-form-item label="用户名">
+                    <el-input v-model="form.username"></el-input>
+                </el-form-item>
+                <el-form-item label="密码">
+                    <el-input v-model="form.password"></el-input>
+                </el-form-item>
+                <el-form-item label="姓名">
+                    <el-input v-model="form.name"></el-input>
+                </el-form-item>
+                <el-form-item label="手机号">
+                    <el-input v-model="form.phone"></el-input>
+                </el-form-item>
+            </el-form>
+            <span slot="footer" class="dialog-footer">
+                <el-button @click="resigterEditVisible = false">取 消</el-button>
+                <el-button type="primary" @click="register">确 定</el-button>
+            </span>
+        </el-dialog>
+
     </div>
 </template>
 
@@ -22,6 +55,7 @@
         data: function(){
             return {
                 loginSuccessfully: false,
+                resigterEditVisible: false,
                 ruleForm: {
                     username: '',
                     password: ''
@@ -33,7 +67,14 @@
                     password: [
                         { required: true, message: '请输入密码', trigger: 'blur' }
                     ]
-                }
+                },
+                form: {
+                    id:'',
+                    username:'',
+                    name:'',
+                    password:'',
+                    phone:'',
+                },
             }
         },
         methods: {
@@ -72,6 +113,25 @@
                         return false;
                     }
                 });
+            },
+            handleRegister() {
+                this.resigterEditVisible = true;
+            },
+            register() {
+                this.$axios({
+                    method: 'post',
+                    url:'http://localhost:8080/Register',
+                    headers: { 'Content-type': 'application/json;charset=UTF-8' },
+                    data: JSON.stringify(this.form)
+                }).then((response) => {
+                    console.log("receive");
+                    console.log(response);
+                    this.$message.success("注册成功!");
+                    this.resigterEditVisible = false;
+                }).catch(function (error) {
+                        console.log(error);
+                    });
+
             }
         }
     }

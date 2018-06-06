@@ -1,5 +1,6 @@
 package cyc.tinyqnar.Buyer.Buyer.Controller;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import cyc.tinyqnar.Buyer.Buyer.Domain.Ticket;
 import cyc.tinyqnar.Buyer.Buyer.Domain.User;
 import cyc.tinyqnar.Buyer.Buyer.Service.TicketService;
@@ -7,9 +8,11 @@ import cyc.tinyqnar.Buyer.Buyer.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
+
 
 @RestController
-public class LoginController {
+public class UserController {
 
     @Autowired
     private UserService userService;
@@ -23,11 +26,11 @@ public class LoginController {
         return userService.CheckExistByUsernameAndPassword(username, password);
     }
 
-//    @RequestMapping("/Query")
-////    @ResponseBody
-//    public Ticket TicketQuery() {
-//
-//
-//    }
+    @RequestMapping(value = "/Register", method = {RequestMethod.POST, RequestMethod.GET})
+    public User Register(@RequestBody String newUser) throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        User u = mapper.readValue(newUser, User.class);
+        return userService.AddUser(u);
+    }
 
 }

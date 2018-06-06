@@ -2,23 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="753faac5-6a30-4f76-b98a-962d27730375" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/cyc/tinyqnar/seller/seller/Comment/GlobalCorsConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/cyc/tinyqnar/seller/seller/Controller/LoginController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/cyc/tinyqnar/seller/seller/Controller/OrderController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/cyc/tinyqnar/seller/seller/Controller/TicketController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/cyc/tinyqnar/seller/seller/Domain/Order.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/cyc/tinyqnar/seller/seller/Domain/Ticket.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/cyc/tinyqnar/seller/seller/Repository/OrderRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/cyc/tinyqnar/seller/seller/Repository/TicketRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/cyc/tinyqnar/seller/seller/SellerApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/cyc/tinyqnar/seller/seller/Service/OrderService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/cyc/tinyqnar/seller/seller/Service/TicketService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/src/test/java/cyc/tinyqnar/seller/seller/SellerApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/cyc/tinyqnar/Buyer/Buyer/Controller/LoginController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/cyc/tinyqnar/Buyer/Buyer/Domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/cyc/tinyqnar/Buyer/Buyer/Domain/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/cyc/tinyqnar/Buyer/Buyer/Service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/cyc/tinyqnar/Buyer/Buyer/Service/OrderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/cyc/tinyqnar/Buyer/Buyer/Service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/cyc/tinyqnar/Buyer/Buyer/Service/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/common/Header.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/Header.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/page/Login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/page/Login.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/page/TicketManagement.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/page/TicketManagement.vue" afterDir="false" />
     </list>
@@ -49,8 +37,8 @@
       <file leaf-file-name="Login.vue" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/page/Login.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="223">
-              <caret line="38" column="18" selection-start-line="38" selection-start-column="18" selection-end-line="38" selection-end-column="18" />
+            <state relative-caret-position="421">
+              <caret line="119" column="24" selection-start-line="119" selection-start-column="24" selection-end-line="119" selection-end-column="24" />
               <folding>
                 <element signature="n#style#0;n#!!top" />
               </folding>
@@ -97,8 +85,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Vue.component</find>
-      <find>form</find>
       <find>tableData</find>
       <find>component</find>
       <find>HOME</find>
@@ -127,9 +113,12 @@
       <find>total</find>
       <find>售票</find>
       <find>登录</find>
+      <find>addEditVisible</find>
+      <find>form</find>
     </findStrings>
     <replaceStrings>
       <replace>购票</replace>
+      <replace>resigterEditVisible</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -295,7 +284,7 @@
       <workItem from="1528117072499" duration="11351000" />
       <workItem from="1528200848646" duration="1920000" />
       <workItem from="1528204049385" duration="1426000" />
-      <workItem from="1528291714582" duration="4553000" />
+      <workItem from="1528291714582" duration="6065000" />
     </task>
     <task id="LOCAL-00001" summary="小改">
       <created>1527917557834</created>
@@ -308,7 +297,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="43242000" />
+    <option name="totallyTimeSpent" value="44754000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-7" width="1920" height="1024" extended-state="6" />
@@ -664,8 +653,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/page/Login.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="38" column="18" selection-start-line="38" selection-start-column="18" selection-end-line="38" selection-end-column="18" />
+        <state relative-caret-position="421">
+          <caret line="119" column="24" selection-start-line="119" selection-start-column="24" selection-end-line="119" selection-end-column="24" />
           <folding>
             <element signature="n#style#0;n#!!top" />
           </folding>

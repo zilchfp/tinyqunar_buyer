@@ -51,7 +51,7 @@
             </div>
         </div>
         <!-- 添加票弹出框 -->
-        <el-dialog title="编辑" :visible.sync="addEditVisible" width="30%">
+        <el-dialog title="编辑" :visible.sync="resigterEditVisible" width="30%">
             <el-form ref="form" :model="form" label-width="50px">
                 <el-form-item label="日期">
                     <el-date-picker type="date" placeholder="选择日期" v-model="form.date" value-format="yyyy-MM-dd" style="width: 100%;"></el-date-picker>
@@ -79,7 +79,7 @@
                 </el-form-item>
             </el-form>
             <span slot="footer" class="dialog-footer">
-                <el-button @click="addEditVisible = false">取 消</el-button>
+                <el-button @click="resigterEditVisible = false">取 消</el-button>
                 <el-button type="primary" @click="saveAddEdit">确 定</el-button>
             </span>
         </el-dialog>
@@ -148,7 +148,7 @@
                 del_list: [],
                 is_search: false,
                 editVisible: false,
-                addEditVisible: false,
+                resigterEditVisible: false,
                 delVisible: false,
                 form: {
                     date: '',
@@ -261,7 +261,7 @@
                     console.log(response);
                     this.getData();
                     this.$message.success("修改成功!");
-                    this.addEditVisible = false;
+                    this.resigterEditVisible = false;
                 }).catch(function (error) {
                         console.log(error);
                     });
@@ -291,7 +291,7 @@
             },
             //添加票
             addTicket() {
-                this.addEditVisible = true;
+                this.resigterEditVisible = true;
             },
             //保存添加的票
             saveAddEdit() {
@@ -307,7 +307,7 @@
                     console.log(response);
                     this.getData();
                     this.$message.success("添加成功!");
-                    this.addEditVisible = false;
+                    this.resigterEditVisible = false;
                 })
                     .catch(function (error) {
                         console.log(error);

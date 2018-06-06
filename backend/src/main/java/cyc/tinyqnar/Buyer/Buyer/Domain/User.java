@@ -21,5 +21,10 @@ public class User {
     @Column(name = "userpassword")
     private String password;
 
+    @Column(name = "name")
+    private String name;
+
+    @Column(name = "phone")
+    private String phone;
 
 }
