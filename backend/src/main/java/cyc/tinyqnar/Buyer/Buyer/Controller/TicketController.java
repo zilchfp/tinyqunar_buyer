@@ -1,7 +1,6 @@
 package cyc.tinyqnar.Buyer.Buyer.Controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.gson.Gson;
 import cyc.tinyqnar.Buyer.Buyer.Domain.Ticket;
 import cyc.tinyqnar.Buyer.Buyer.Service.TicketService;
 import org.springframework.beans.factory.annotation.Autowired;

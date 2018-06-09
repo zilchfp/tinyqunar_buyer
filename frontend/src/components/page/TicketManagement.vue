@@ -14,7 +14,8 @@
                 <!--</el-select>-->
                 <!--<el-input v-model="select_word" placeholder="筛选关键词" class="handle-input mr10"></el-input>-->
                 <!--<el-button type="primary" icon="search" @click="search">搜索</el-button>-->
-                <el-button type="primary" icon="addTicket" @click="addTicket">添加机票</el-button>
+                <!--<el-button type="primary" icon="addTicket" @click="addTicket">添加机票</el-button>-->
+                <el-button type="primary" icon="addTicket" @click="buySelectedTicket">批量购买</el-button>
             </div>
             <el-table :data="data" border style="width: 100%" ref="multipleTable" @selection-change="handleSelectionChange">
                 <!--<el-table-column type="selection" width="55"></el-table-column>-->
@@ -40,8 +41,8 @@
                 </el-table-column>
                 <el-table-column label="操作" width="180">
                     <template slot-scope="scope">
-                        <el-button size="small" @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
-                        <el-button size="small" type="danger" @click="handleDelete(scope.$index, scope.row)">删除</el-button>
+                        <el-button size="small" @click="handleBuyTicket(scope.$index, scope.row)">购票</el-button>
+                        <!--<el-button size="small" type="danger" @click="handleDelete(scope.$index, scope.row)">删除</el-button>-->
                     </template>
                 </el-table-column>
             </el-table>
@@ -50,83 +51,83 @@
                 </el-pagination>
             </div>
         </div>
-        <!-- 添加票弹出框 -->
-        <el-dialog title="编辑" :visible.sync="resigterEditVisible" width="30%">
-            <el-form ref="form" :model="form" label-width="50px">
-                <el-form-item label="日期">
-                    <el-date-picker type="date" placeholder="选择日期" v-model="form.date" value-format="yyyy-MM-dd" style="width: 100%;"></el-date-picker>
-                </el-form-item>
-                <el-form-item label="出发地">
-                    <el-input v-model="form.start"></el-input>
-                </el-form-item>
-                <el-form-item label="目的地">
-                    <el-input v-model="form.end"></el-input>
-                </el-form-item>
-                <el-form-item label="出发时间">
-                    <el-input v-model="form.start_time"></el-input>
-                </el-form-item>
-                <el-form-item label="小时">
-                    <el-input v-model="form.time_hour"></el-input>
-                </el-form-item>
-                <el-form-item label="分钟">
-                    <el-input v-model="form.time_minute"></el-input>
-                </el-form-item>
-                <el-form-item label="价钱">
-                    <el-input v-model="form.price"></el-input>
-                </el-form-item>
-                <el-form-item label="余量">
-                    <el-input v-model="form.amount"></el-input>
-                </el-form-item>
-            </el-form>
-            <span slot="footer" class="dialog-footer">
-                <el-button @click="resigterEditVisible = false">取 消</el-button>
-                <el-button type="primary" @click="saveAddEdit">确 定</el-button>
-            </span>
-        </el-dialog>
+        <!--&lt;!&ndash; 添加票弹出框 &ndash;&gt;-->
+        <!--<el-dialog title="编辑" :visible.sync="resigterEditVisible" width="30%">-->
+            <!--<el-form ref="form" :model="form" label-width="50px">-->
+                <!--<el-form-item label="日期">-->
+                    <!--<el-date-picker type="date" placeholder="选择日期" v-model="form.date" value-format="yyyy-MM-dd" style="width: 100%;"></el-date-picker>-->
+                <!--</el-form-item>-->
+                <!--<el-form-item label="出发地">-->
+                    <!--<el-input v-model="form.start"></el-input>-->
+                <!--</el-form-item>-->
+                <!--<el-form-item label="目的地">-->
+                    <!--<el-input v-model="form.end"></el-input>-->
+                <!--</el-form-item>-->
+                <!--<el-form-item label="出发时间">-->
+                    <!--<el-input v-model="form.start_time"></el-input>-->
+                <!--</el-form-item>-->
+                <!--<el-form-item label="小时">-->
+                    <!--<el-input v-model="form.time_hour"></el-input>-->
+                <!--</el-form-item>-->
+                <!--<el-form-item label="分钟">-->
+                    <!--<el-input v-model="form.time_minute"></el-input>-->
+                <!--</el-form-item>-->
+                <!--<el-form-item label="价钱">-->
+                    <!--<el-input v-model="form.price"></el-input>-->
+                <!--</el-form-item>-->
+                <!--<el-form-item label="余量">-->
+                    <!--<el-input v-model="form.amount"></el-input>-->
+                <!--</el-form-item>-->
+            <!--</el-form>-->
+            <!--&lt;!&ndash;<span slot="footer" class="dialog-footer">&ndash;&gt;-->
+                <!--&lt;!&ndash;<el-button @click="resigterEditVisible = false">取 消</el-button>&ndash;&gt;-->
+                <!--&lt;!&ndash;<el-button type="primary" @click="saveAddEdit">确 定</el-button>&ndash;&gt;-->
+            <!--&lt;!&ndash;</span>&ndash;&gt;-->
+        <!--</el-dialog>-->
 
-        <!-- 编辑弹出框 -->
-        <el-dialog title="编辑" :visible.sync="editVisible" width="30%">
-            <el-form ref="form" :model="form" label-width="50px">
-                <el-form-item label="日期">
-                    <el-date-picker type="date" placeholder="选择日期" v-model="form.date" value-format="yyyy-MM-dd" style="width: 100%;"></el-date-picker>
-                </el-form-item>
-                <el-form-item label="机票ID   ">
-                    <el-input v-model="form.id"></el-input>
-                </el-form-item>
-                <el-form-item label="出发地">
-                    <el-input v-model="form.start"></el-input>
-                </el-form-item>
-                <el-form-item label="目的地">
-                    <el-input v-model="form.end"></el-input>
-                </el-form-item>
-                <el-form-item label="出发时间">
-                    <el-input v-model="form.start_time"></el-input>
-                </el-form-item>
-                <el-form-item label="小时">
-                    <el-input v-model="form.time_hour"></el-input>
-                </el-form-item>
-                <el-form-item label="分钟">
-                    <el-input v-model="form.time_minute"></el-input>
-                </el-form-item>
-                <el-form-item label="价钱">
-                    <el-input v-model="form.price"></el-input>
-                </el-form-item>
-                <el-form-item label="余量">
-                    <el-input v-model="form.amount"></el-input>
-                </el-form-item>
-            </el-form>
-            <span slot="footer" class="dialog-footer">
-                <el-button @click="editVisible = false">取 消</el-button>
-                <el-button type="primary" @click="saveEdit">确 定</el-button>
-            </span>
-        </el-dialog>
+        <!--&lt;!&ndash; 编辑弹出框 &ndash;&gt;-->
+        <!--<el-dialog title="编辑" :visible.sync="editVisible" width="30%">-->
+            <!--<el-form ref="form" :model="form" label-width="50px">-->
+                <!--<el-form-item label="日期">-->
+                    <!--<el-date-picker type="date" placeholder="选择日期" v-model="form.date" value-format="yyyy-MM-dd" style="width: 100%;"></el-date-picker>-->
+                <!--</el-form-item>-->
+                <!--<el-form-item label="机票ID   ">-->
+                    <!--<el-input v-model="form.id"></el-input>-->
+                <!--</el-form-item>-->
+                <!--<el-form-item label="出发地">-->
+                    <!--<el-input v-model="form.start"></el-input>-->
+                <!--</el-form-item>-->
+                <!--<el-form-item label="目的地">-->
+                    <!--<el-input v-model="form.end"></el-input>-->
+                <!--</el-form-item>-->
+                <!--<el-form-item label="出发时间">-->
+                    <!--<el-input v-model="form.start_time"></el-input>-->
+                <!--</el-form-item>-->
+                <!--<el-form-item label="小时">-->
+                    <!--<el-input v-model="form.time_hour"></el-input>-->
+                <!--</el-form-item>-->
+                <!--<el-form-item label="分钟">-->
+                    <!--<el-input v-model="form.time_minute"></el-input>-->
+                <!--</el-form-item>-->
+                <!--<el-form-item label="价钱">-->
+                    <!--<el-input v-model="form.price"></el-input>-->
+                <!--</el-form-item>-->
+                <!--<el-form-item label="余量">-->
+                    <!--<el-input v-model="form.amount"></el-input>-->
+                <!--</el-form-item>-->
+            <!--</el-form>-->
+            <!--&lt;!&ndash;<span slot="footer" class="dialog-footer">&ndash;&gt;-->
+                <!--&lt;!&ndash;<el-button @click="editVisible = false">取 消</el-button>&ndash;&gt;-->
+                <!--&lt;!&ndash;<el-button type="primary" @click="saveEdit">确 定</el-button>&ndash;&gt;-->
+            <!--&lt;!&ndash;</span>&ndash;&gt;-->
+        <!--</el-dialog>-->
 
         <!-- 删除提示框 -->
-        <el-dialog title="提示" :visible.sync="delVisible" width="300px" center>
-            <div class="del-dialog-cnt">删除不可恢复，是否确定删除？</div>
+        <el-dialog title="提示" :visible.sync="buyTicketVisible" width="300px" center>
+            <div class="del-dialog-cnt">是否确定购买？</div>
             <span slot="footer" class="dialog-footer">
-                <el-button @click="delVisible = false">取 消</el-button>
-                <el-button type="primary" @click="deleteRow">确 定</el-button>
+                <el-button @click="buyTicketVisible = false">取 消</el-button>
+                <el-button type="primary" @click="butTicket">确 定</el-button>
             </span>
         </el-dialog>
     </div>
@@ -138,7 +139,7 @@
         name: 'basetable',
         data () {
             return {
-                baseurl:'http://localhost:8080',
+                baseurl:'http://localhost:10001',
                 url: './static/vuetable.json',
                 tableData: [],
                 cur_page: 1,
@@ -148,6 +149,7 @@
                 del_list: [],
                 is_search: false,
                 editVisible: false,
+                buyTicketVisible: false,
                 resigterEditVisible: false,
                 delVisible: false,
                 form: {
@@ -213,7 +215,8 @@
             filterTag(value, row) {
                 return row.tag === value;
             },
-            handleEdit(index, row) {
+            handleBuyTicket(index, row) {
+                this.buyTicketVisible = true,
                 this.idx = index;
                 const item = this.tableData[index];
                 this.form = {
@@ -230,41 +233,22 @@
                 };
                 this.editVisible = true;
             },
-            handleDelete(index, row) {
-                this.idx = index;
-                this.delVisible = true;
-            },
-            delAll() {
-                const length = this.multipleSelection.length;
-                let str = '';
-                this.del_list = this.del_list.concat(this.multipleSelection);
-                for (let i = 0; i < length; i++) {
-                    str += this.multipleSelection[i].name + ' ';
-                }
-                this.$message.error('删除了' + str);
-                this.multipleSelection = [];
-            },
+            // handleDelete(index, row) {
+            //     this.idx = index;
+            //     this.delVisible = true;
+            // },
+            // delAll() {
+            //     const length = this.multipleSelection.length;
+            //     let str = '';
+            //     this.del_list = this.del_list.concat(this.multipleSelection);
+            //     for (let i = 0; i < length; i++) {
+            //         str += this.multipleSelection[i].name + ' ';
+            //     }
+            //     this.$message.error('删除了' + str);
+            //     this.multipleSelection = [];
+            // },
             handleSelectionChange(val) {
                 this.multipleSelection = val;
-            },
-            // 保存编辑
-            saveEdit() {
-                this.$set(this.tableData, this.idx, this.form);
-                this.editVisible = false;
-                this.$axios({
-                    method: 'post',
-                    url:'http://localhost:8080/ticket/add',
-                    headers: { 'Content-type': 'application/json;charset=UTF-8' },
-                    data: JSON.stringify(this.form)
-                }).then((response) => {
-                    console.log("receive");
-                    console.log(response);
-                    this.getData();
-                    this.$message.success("修改成功!");
-                    this.resigterEditVisible = false;
-                }).catch(function (error) {
-                        console.log(error);
-                    });
             },
             // 确定删除
             deleteRow(){
@@ -275,7 +259,7 @@
                 console.log();
                 this.$axios({
                     method: 'post',
-                    url:'http://localhost:8080/ticket/delete',
+                    url: this.baseurl+ '/ticket/delete',
                     headers: { 'Content-type': 'application/json' },
                     params: {
                         id:this.tableData[this.idx].id,
@@ -289,27 +273,30 @@
                         console.log(error);
                     });
             },
-            //添加票
-            addTicket() {
-                this.resigterEditVisible = true;
+            //批量买票
+            buySelectedTicket() {
+
+
+
             },
-            //保存添加的票
-            saveAddEdit() {
-                this.$set(this.tableData, this.idx, this.form);
-                console.log('this.form');
-                console.log(this.form);
+            //单张买票
+            butTicket() {
+                this.buyTicketVisible = false;
+                console.log('this.idx:'+this.idx);
+                console.log('this.tableData[this.idx]:');
+                console.log();
                 this.$axios({
                     method: 'post',
-                    url:'http://localhost:8080/ticket/add',
+                    url: this.baseurl+ '/ticket/buy',
                     headers: { 'Content-type': 'application/json' },
-                    data: JSON.stringify(this.form)
+                    params: {
+                        id:this.tableData[this.idx].id,
+                    }
                 }).then((response) => {
                     console.log(response);
                     this.getData();
-                    this.$message.success("添加成功!");
-                    this.resigterEditVisible = false;
-                })
-                    .catch(function (error) {
+                    this.$message.success("买票成功!");
+                }).catch(function (error) {
                         console.log(error);
                     });
             }

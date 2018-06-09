@@ -183,7 +183,7 @@
             filterTag(value, row) {
                 return row.tag === value;
             },
-            handleEdit(index, row) {
+            handleBuyTicket(index, row) {
                 this.idx = index;
                 const item = this.tableData[index];
                 this.form = {
