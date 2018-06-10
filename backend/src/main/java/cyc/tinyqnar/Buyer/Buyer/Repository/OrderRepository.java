@@ -1,11 +1,9 @@
 package cyc.tinyqnar.Buyer.Buyer.Repository;
 
+import cyc.tinyqnar.Buyer.Buyer.Domain.BankerOrder;
 import cyc.tinyqnar.Buyer.Buyer.Domain.Order;
-import cyc.tinyqnar.Buyer.Buyer.Domain.Ticket;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-
-import java.util.List;
 
 
 public interface OrderRepository extends JpaRepository<Order, Long> {

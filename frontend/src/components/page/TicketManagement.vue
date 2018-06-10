@@ -2,7 +2,7 @@
     <div class="table">
         <div class="crumbs">
             <el-breadcrumb separator="/">
-                <el-breadcrumb-item><i class="el-icon-tickets"></i> 机票管理</el-breadcrumb-item>
+                <el-breadcrumb-item><i class="el-icon-tickets"></i> 机票查询</el-breadcrumb-item>
             </el-breadcrumb>
         </div>
         <div class="container">
@@ -139,7 +139,7 @@
         name: 'basetable',
         data () {
             return {
-                baseurl:'http://localhost:10001',
+                baseurl:'http://localhost:10002',
                 url: './static/vuetable.json',
                 tableData: [],
                 cur_page: 1,

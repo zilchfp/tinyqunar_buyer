@@ -32,7 +32,7 @@ export default new Router({
                 {
                     path: '/ticket',
                     component: resolve => require(['../components/page/TicketManagement.vue'], resolve),
-                    meta: { title: '机票管理' }
+                    meta: { title: '机票查询' }
                 },
                 {
                     path: '/form',

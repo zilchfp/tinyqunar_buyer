@@ -1,6 +1,5 @@
 package cyc.tinyqnar.Buyer.Buyer.Domain;
 
-
 import lombok.Data;
 
 import javax.persistence.*;

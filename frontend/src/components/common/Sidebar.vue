@@ -43,7 +43,7 @@
                     {
                         icon: 'el-icon-date',
                         index: 'ticket',
-                        title: '机票管理',
+                        title: '机票查询',
                     },
                     {
                         icon: 'el-icon-star-on',
