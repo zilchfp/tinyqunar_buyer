@@ -45,11 +45,11 @@
                         index: 'ticket',
                         title: '机票查询',
                     },
-                    {
-                        icon: 'el-icon-star-on',
-                        index: 'charts',
-                        title: '票务统计'
-                    },
+                    // {
+                    //     icon: 'el-icon-star-on',
+                    //     index: 'charts',
+                    //     title: '票务统计'
+                    // },
                     {
                         icon: 'el-icon-warning',
                         index: 'permission',

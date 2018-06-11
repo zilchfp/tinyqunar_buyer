@@ -1,6 +1,7 @@
 package cyc.tinyqnar.Buyer.Buyer.Controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.github.kevinsawicki.http.HttpRequest;
 import cyc.tinyqnar.Buyer.Buyer.Domain.BankerOrder;
 import cyc.tinyqnar.Buyer.Buyer.Domain.Ticket;
 import cyc.tinyqnar.Buyer.Buyer.Service.TicketService;
@@ -11,7 +12,9 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 @RestController
@@ -32,6 +35,16 @@ public class TicketController {
 
     @RequestMapping("/ticket/query")
     public List<Ticket> OrderFind() {
+
+//        OkHttpClient client = new OkHttpClient();
+//
+//        RequestBody formBody = new FormBody.Builder()
+//                .add("message", "Your message")
+//                .build();
+//        Request request = new Request.Builder()
+//                .url("http://www.foo.bar/index.php")
+//                .post(formBody)
+//                .build();
 
         return ticketService.findRestTickets();
     }

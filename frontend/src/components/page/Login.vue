@@ -84,7 +84,7 @@
                         localStorage.setItem('ms_username',this.ruleForm.username);
                         this.$axios({
                             method: 'post',
-                            url:'http://localhost:8080/Login',
+                            url:'http://localhost:10002/Login',
                             headers: { 'Content-type': 'application/json;charset=UTF-8' },
                             params: {
                                     username: this.ruleForm.username,
@@ -120,7 +120,7 @@
             register() {
                 this.$axios({
                     method: 'post',
-                    url:'http://localhost:8080/Register',
+                    url:'http://localhost:10002/Register',
                     headers: { 'Content-type': 'application/json;charset=UTF-8' },
                     data: JSON.stringify(this.form)
                 }).then((response) => {
